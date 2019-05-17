@@ -1,0 +1,14 @@
+version: '2.1'
+services:
+  web-sandbox:
+    container_name: web-sandbox
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    volumes:
+      - ../app:/app
+    env_file:
+      - .env-dev
+    ports:
+      - "8100:80"
+    restart: always
