@@ -7,5 +7,7 @@ interface PhoneValidatorDriver
 {
     public function validate($phone);
 
-    public function prepareResult();
+    public function prepareResult($result);
+
+    public function getIsValid();
 }
