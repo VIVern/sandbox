@@ -8,3 +8,4 @@ ini_set('display_errors', 1);
 
 echo '<pre>';
 var_dump($_ENV);
+var_dump($_SERVER);

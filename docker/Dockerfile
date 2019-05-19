@@ -34,6 +34,8 @@ COPY docker/default /etc/nginx/sites-enabled/default
 COPY docker/run.sh /run.sh
 RUN chmod 755 /run.sh
 
+RUN sed -i -e "s/;clear_env\s*=\s*no/clear_env = no/g" /etc/php/7.1/fpm/pool.d/www.conf
+RUN sed -i -e "s/variables_order\s*=\s*\"GPCS\"/;variables_order = \"GPCS\"/g" /etc/php/7.1/fpm/php.ini
 
 EXPOSE 80
 
