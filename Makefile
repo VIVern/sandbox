@@ -4,7 +4,7 @@ export COMPOSE_FILE
 export COMPOSE_PROJECT_NAME
 
 .PHONY: build
-build: up composer-install
+build: up composer-install migrate
 
 .PHONY: down
 down:
@@ -18,6 +18,10 @@ up: down
 .PHONY: composer-install
 composer-install:
 	@docker exec -it web-sandbox sh -c "composer install -o -n"
+
+.PHONY: migrate
+migrate:
+	mysql --host=0.0.0.0 --port=33306 --user=root --password=${MYSQL_ROOT_PASSWORD} sandbox-db < app/migrations/driver_table.sql
 
 .PHONY: tests
 tests:

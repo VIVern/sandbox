@@ -13,7 +13,7 @@ class MelisaDriver implements PhoneValidatorDriver
     public function validate($phone)
     {
         $client = new Client();
-        $result = $client->get('172.23.0.4:80/json/response_1.json');
+        $result = $client->get('172.25.0.4:80/json/response_1.json');
         $this->prepareResult($result->getBody()->getContents());
     }
 

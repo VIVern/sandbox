@@ -12,7 +12,7 @@ class GBDriver implements PhoneValidatorDriver
     public function validate($phone)
     {
         $client = new Client();
-        $result = $client->get('172.23.0.4:80/json/response_2.json');
+        $result = $client->get('172.25.0.4:80/json/response_2.json');
         $this->prepareResult($result->getBody()->getContents());
     }
 
