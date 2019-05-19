@@ -20,6 +20,7 @@ RUN apt-get install -yq php7.1 \
 		php7.1-xml \
 		php7.1-curl \
 		php7.1-soap \
+		php7.1-pdo \
 		php7.1-fpm \
 		nano \
 		nginx \
