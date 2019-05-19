@@ -3,15 +3,18 @@
 namespace App\controllers;
 
 use App\Core\Request;
-use App\services\PhoneConfigManager;
+use App\services\PhoneHandler;
 
 class PhoneValidationController
 {
+    /**
+     * @param Request $request
+     */
     public function validatePhone(Request $request)
     {
-        var_dump($request->getBody());
-
-        $t = new PhoneConfigManager("BY");
-        var_dump($t->getConfig());
+        //var_dump($request->getBody());
+        $data = json_decode($request->getBody(), true);
+        $phoneHandler = new PhoneHandler();
+        $phoneHandler->handle($data['phone'], $data['region']);
     }
 }

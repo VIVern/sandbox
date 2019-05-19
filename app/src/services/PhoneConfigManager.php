@@ -1,20 +1,20 @@
 <?php
 
 namespace App\services;
-use PDO;
 
+use App\Core\MysqlConnector;
 
 class PhoneConfigManager
 {
-    private $region;
+    private $db;
 
-    public function __construct($region)
+    public function __construct()
     {
-        $this->region = $region;
+        $this->db = new MysqlConnector();
     }
 
-    public function getConfig()
+    public function getConfig($region)
     {
-
+        return $this->db->query("SELECT * FROM config WHERE region = '$region' AND active = 1");
     }
 }

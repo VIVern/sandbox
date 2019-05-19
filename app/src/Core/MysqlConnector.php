@@ -30,7 +30,7 @@ class MysqlConnector
     /**
      * @return PDO
      */
-    public function connect()
+    public function connection()
     {
         return $this->db;
     }
@@ -43,6 +43,6 @@ class MysqlConnector
     {
         $query = $this->db->query($queryString);
         $query->execute();
-        return $query->fetch();
+        return $query->fetchAll();
     }
 }
