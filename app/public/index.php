@@ -4,6 +4,6 @@ require_once '../vendor/autoload.php';
 
 ini_set('display_errors', 1);
 
-$test = new App\controllers\TmdbMovies();
+$controller = new \App\controllers\PhoneValidationController();
 
-var_dump($test->getMovies());
+$controller->validatePhone(\App\Core\Request::instance());
