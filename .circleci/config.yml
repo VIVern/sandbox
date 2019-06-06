@@ -14,7 +14,7 @@ jobs:
           command: |
             sudo apt install -y python3-pip
             sudo pip3 install --upgrade awscli
-            docker-compose -f docker/docker-compose-dev.yml build
+            docker-compose -f docker/docker-compose.yml build
             docker tag docker_supplier_lister-web:latest 850117686356.dkr.ecr.us-east-2.amazonaws.com/test-aws:latest
             eval $(aws ecr get-login --region us-east-2 --no-include-email)
             docker push 850117686356.dkr.ecr.us-east-2.amazonaws.com/personal-redis
