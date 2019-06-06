@@ -11,8 +11,8 @@ $redis = new Predis\Client(
         "port" => 6379,
     ]
 );
-echo "Connected to Redis";
+echo "Connected to Redis\n";
 
 $redis->set("FromPHP", "this record set from php");
-$redis->get("test");
-$redis->get("FromPHP");
+echo $redis->get("test") . "\n";
+echo $redis->get("FromPHP") . "\n";
