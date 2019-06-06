@@ -4,6 +4,15 @@ require_once '../vendor/autoload.php';
 
 ini_set('display_errors', 1);
 
-$controller = new \App\controllers\PhoneValidationController();
+$redis = new Predis\Client(
+    [
+        "scheme" => "tcp",
+        "host" => "personal-redis-001.bz4f4a.0001.use2.cache.amazonaws.com",
+        "port" => 6379,
+    ]
+);
+echo "Connected to Redis";
 
-$controller->validatePhone(\App\Core\Request::instance());
+$redis->set("FromPHP", "this record set from php");
+$redis->get("test");
+$redis->get("FromPHP");
