@@ -30,6 +30,7 @@ RUN apt-get install -yq php7.1 \
 WORKDIR /app
 
 COPY app/composer.json ./
+COPY app .
 
 COPY docker/default /etc/nginx/sites-enabled/default
 COPY docker/run.sh /run.sh
